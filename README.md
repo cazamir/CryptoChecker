@@ -20,6 +20,34 @@ After you've checked you have both of those, while in the CryptoChecker director
 - [Apt](https://bit.ly/3IKqXoD)
 + [Zypper](https://bit.ly/3CtxRKV)
 * [Nix](https://bit.ly/3QgUQyp)
+After installing the Make package you can execute "make start" once again. Once it has built all you need to do is forward the port you set it up with (default: 80) and go to localhost:port.
+
+### How do I add it to the tor network?
+If you want to proxy this to the tor network all you need to do is use the docker image [dperson/torproxy](https://bit.ly/3IKrNlh) then add the following code to the file ["docker-compose.yml"](https://bit.ly/3jPn5Ih):
+
+tor:
+    image: dperson/torproxy
+    ports:
+      - "9050:9050"
+      - "80:80"
+    environment:
+      - ALLOWED_IP_RANGES=0.0.0.0/0
+      - HIDDEN_SERVICE_DIR=/var/lib/tor/hidden_service
+      - HIDDEN_SERVICE_PORT=80
+      - HIDDEN_SERVICE_V3=1
+    volumes:
+      - /var/lib/tor/hidden_service:/var/lib/tor/hidden_service
+      - /etc/localtime:/etc/localtime:ro
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      
+And make sure to change "80:80" and "80" to the port you are using. (default: 80)
+
+### Why am I getting errors?
+The most common errors are from un-installed packages, before using CryptoChecker make sure you have these packages installed on your linux server:
+Make
+Docker
+If you are still getting errors even after installing these linux packages please create a [issue.](https://github.com/cazamir/CryptoChecker/issues)
 
 
 ## Credits 
