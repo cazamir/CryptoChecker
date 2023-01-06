@@ -26,21 +26,24 @@ After installing the Make package you can execute "make start" once again. Once 
 ### How do I add it to the tor network?
 If you want to proxy this to the tor network all you need to do is use the docker image [dperson/torproxy](https://bit.ly/3IKrNlh) then add the following code to the file ["docker-compose.yml"](https://bit.ly/3jPn5Ih):
 
-tor: <br />
-    image: dperson/torproxy <br />
-       ports: <br />
-      - "9050:9050" <br />
-      - "80:80" <br />
-    environment: <br />
-      - ALLOWED_IP_RANGES=0.0.0.0/0 <br />
-      - HIDDEN_SERVICE_DIR=/var/lib/tor/hidden_service <br />
-      - HIDDEN_SERVICE_PORT=80 <br />
-      - HIDDEN_SERVICE_V3=1 <br />
-    volumes: <br />
-      - /var/lib/tor/hidden_service:/var/lib/tor/hidden_service <br />
-      - /etc/localtime:/etc/localtime:ro <br />
-    volumes: <br />
-      - /var/run/docker.sock:/tmp/docker.sock:ro <br />
+```
+tor:
+    image: dperson/torproxy
+    ports:
+      - "9050:9050"
+      - "80:80"
+    environment:
+      - ALLOWED_IP_RANGES=0.0.0.0/0
+      - HIDDEN_SERVICE_DIR=/var/lib/tor/hidden_service
+      - HIDDEN_SERVICE_PORT=80
+      - HIDDEN_SERVICE_V3=1
+    volumes:
+      - /var/lib/tor/hidden_service:/var/lib/tor/hidden_service
+      - /etc/localtime:/etc/localtime:ro
+      
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+```
       
 And make sure to change "80:80" and "80" to the port you are using. (default: 80)
 
