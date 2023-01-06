@@ -28,7 +28,7 @@ If you want to proxy this to the tor network all you need to do is use the docke
 
 tor: <br />
     image: dperson/torproxy <br />
- <br />    ports: <br />
+       ports: <br />
       - "9050:9050" <br />
       - "80:80" <br />
     environment: <br />
