@@ -20,6 +20,7 @@ After you've checked you have both of those, while in the CryptoChecker director
 - [Apt](https://bit.ly/3IKqXoD) <br />
 + [Zypper](https://bit.ly/3CtxRKV) <br />
 * [Nix](https://bit.ly/3QgUQyp) <br />
+
 After installing the Make package you can execute "make start" once again. Once it has built all you need to do is forward the port you set it up with (default: 80) and go to localhost:port.
 
 ### How do I add it to the tor network?
