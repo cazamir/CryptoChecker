@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: crypto-price-checker
+    ports:
+      - "8068:80"
+    volumes:
+      - ./app:/usr/share/nginx/html
