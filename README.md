@@ -15,11 +15,11 @@ This is *not* a ready-to-use program, it is missing a lot of core features and h
 ### How do I use it?
 To use CryptoChecker you first have to have a linux command line with bash installed, and then you have to have docker.
 After you've checked you have both of those, while in the CryptoChecker directory type "make start" in the command line. If this does not work and gives you a error, make sure Make is installed, to install Make here are some common package manager commands you can use:
-> Pacman
-> Homebrew
-> Apt
-> Zypper 
-> Nix
++ Pacman
+* Homebrew
+- Apt
++ Zypper 
+* Nix
 
 
 ## Credits 
